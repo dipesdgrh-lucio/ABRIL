@@ -1,0 +1,8 @@
+SELECT
+isnull(cd_cep, '') as CEP,
+isnull(nr_dig_cep, '') DIGITO,
+isnull(nm_bairro, '') BAIRRO,
+isnull(en_pessoa, '') ENDEREÇO,
+isnull(nm_pessoa, '') NOME
+FROM SAS.[032026].TB_PESSOAL
+where nr_cpf = '45724312808'
