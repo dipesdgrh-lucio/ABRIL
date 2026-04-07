@@ -1,0 +1,43 @@
+/*Nome completo;
+Endereço de e-mail;
+Telefone para contato.*/
+
+select top 3 *
+from cepea_sas.dbo.chor_sala_aula0326
+
+select distinct 
+a.REGIAO,
+a.NOMEDE,
+a.NOME,
+a.CPF,
+a.CODMAE,
+a.DEN_CODMAE,
+a.turno,
+a.materia,
+C.CD_DDD_CEL,
+c.nr_tel_cel,
+b.email_inst2
+from cepea_sas.dbo.chor_sala_aula0326 as a 
+left join cepea_sas.dbo.ctg0326 as b 
+on a.cpf = b.cpf
+left join SAS.[022024].TB_PESSOAL as c 
+on a.cpf = c.nr_cpf
+where CODMAE = '52008'
+
+
+select top 3 * 
+from cepea_sas.dbo.chor_sala_aula0326
+where materia = 52008
+
+select top 3 * 
+from cepea_sas.dbo.ctg0326
+
+SELECT TOP 10 *
+FROM CONTAGEH..TB_FUNCIONAL
+
+SELECT TOP 3 *
+FROM SAS.[122025].[TB_ENDERECO]
+
+SELECT TOP 20 *
+FROM SAS.[022024].TB_PESSOAL
+
