@@ -1,0 +1,28 @@
+--1 - Número total de professores de Língua Portuguesa contratados em regime temporário, nos termos da Lei Complementar Estadual nº 1.093/2009, no período compreendido entre 19 de julho de 2024 e a data de resposta ao presente pedido, nas seguintes Diretorias de Ensino: (i) São Paulo – Centro; (ii) São Paulo – Sul 2; (iii) São Paulo – Norte 1; (iv) São Paulo – Norte 2; (v) São Paulo – Sul 1; (vi) São Paulo – Sul 3; (vii) São Paulo – Centro Sul.
+SELECT distinct
+     REGIAO,
+     CD_DIRETORIA AS COD_UA,
+     NOMEDE AS URE,
+     CODESC AS CIE,
+     UA AS UNID_ATENDIEMNTO,
+     NOMEESC AS ESCOLA,
+     MODAL AS MODALIDADE,
+     NOME AS NOME_PROFESSOR,
+     CPF,
+     DI,
+     CARGO_E,
+            CASE 
+                WHEN CATEG_E = 'O' THEN 'O - TEMPORARIO'
+                ELSE CATEG_E 
+                END AS CATEGORIA_C,
+     NOME_CARGO_E,
+     DTIEXER_E,
+     MATERIA,
+     DEN_MATERIA
+FROM CEPEA_SAS.DBO.CHOR_SALA_AULA0326
+WHERE MATERIA = '1100'
+AND CONVERT(DATE, DTIEXER_E, 103) >= '2024-07-19'
+AND CONVERT(DATE, DTIEXER_E, 103) <= '2026-03-31'
+AND CATEG_E = 'O'
+AND NOMEDE IN ('SUL 2', 'CENTRO', 'NORTE 1', 'NORTE 2', 'SUL 1', 'SUL 3', 'CENTRO SUL')
+order by nomede 
