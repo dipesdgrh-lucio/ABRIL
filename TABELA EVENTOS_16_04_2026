@@ -1,0 +1,10 @@
+SELECT 
+nr_cpf,
+nr_di,
+cd_eve
+FROM CONTAGEH.DBO.TB_ATRIB_EVENTO
+WHERE CD_TIP_EVE = 'LI'
+and cd_eve = '105'
+
+select top 3 *
+from CONTAGEH.DBO.TB_ATRIB_EVENTO
