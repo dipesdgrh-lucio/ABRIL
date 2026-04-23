@@ -1,0 +1,36 @@
+--Número de professores efetivos vinculados da Unidade Regional de Assis
+--Número de Professores não efetivos/contratados da Unidade Regional de Assis 
+
+select top 3 * 
+from cepea_sas.dbo.ctg0326
+
+select top 3 * 
+	from CEPEA_SAS.dbo.ARQDEUA0326
+     
+
+
+
+
+SELECT 
+B.REGIAO,
+B.NOMEDE AS URE, 
+A.CPF,
+A.DI,
+A.RG11 AS RG,
+A.NOME,
+A.CARGO_E, 
+A.CATEG_E_DESC
+from cepea_sas.dbo.ctg0326 A
+	LEFT JOIN CEPEA_SAS.dbo.ARQDEUA0326 AS B
+     	ON A.CODUA_e = B.UA
+WHERE --CATEG_E IN ('A', 'F', 'P', 'N', 'O')
+NOMEDE = 'ASSIS'
+AND CARGO_E IN (6407, 6408, 6409, 5774, 5776)
+--AND CATEG_E = 'A'
+ORDER BY CPF
+
+
+
+--A-654
+--F-132
+--O-661
